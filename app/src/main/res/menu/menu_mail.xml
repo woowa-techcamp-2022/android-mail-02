@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group_mail"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/item_primary"
+            android:checked="true"
+            android:icon="@drawable/ic_primary_24"
+            android:title="@string/primary" />
+        <item
+            android:id="@+id/item_social"
+            android:icon="@drawable/ic_social_24"
+            android:title="@string/social" />
+        <item
+            android:id="@+id/item_promotion"
+            android:icon="@drawable/ic_promotion_24"
+            android:title="@string/promotions" />
+    </group>
+</menu>
