@@ -12,5 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="BottomNavigationView.Text" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="BottomNavigationView.Text.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">8sp</item>
     </style>
 </resources>
