@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MailApplication</string>
+
+    <string name="nickname">닉네임</string>
+    <string name="next">Next</string>
+    <string name="mail">Mail</string>
+    <string name="setting">Setting</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="primary">Primary</string>
+    <string name="social">Social</string>
+    <string name="promotions">Promotions</string>
+    <string name="w_mail">W mail</string>
+    <string name="email">이메일</string>
 </resources>
