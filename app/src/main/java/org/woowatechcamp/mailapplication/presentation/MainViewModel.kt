@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val mailRepository: MailRepository) : ViewModel() {
-    private val _selectCategory = MutableStateFlow<Int>(PRIMARY)
+    private val _selectCategory = MutableStateFlow(PRIMARY)
     val selectCategory
         get() = _selectCategory.asStateFlow()
 
