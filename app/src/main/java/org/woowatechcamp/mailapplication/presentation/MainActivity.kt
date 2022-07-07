@@ -1,6 +1,7 @@
 package org.woowatechcamp.mailapplication.presentation
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -25,6 +26,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         super.onCreate(savedInstanceState)
         initNavigation()
         initBottomNavigation()
+        initNavigationRail()
         observeData()
     }
 
@@ -37,7 +39,12 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
         viewModel.selectMenu.flowWithLifecycle(lifecycle)
             .onEach {
-                binding.bnvMain.menu.findItem(it).isChecked = true
+                binding.bnvMain?.let { bnv ->
+                    bnv.menu.findItem(it).isChecked = true
+                }
+                binding.navMain?.let { bnv ->
+                    bnv.menu.findItem(it).isChecked = true
+                }
                 replaceFragment(it)
             }
             .launchIn(lifecycleScope)
@@ -76,7 +83,14 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     }
 
     private fun initBottomNavigation() {
-        binding.bnvMain.setOnItemSelectedListener {
+        binding.bnvMain?.setOnItemSelectedListener {
+            viewModel.setMenuSelect(it.itemId)
+            true
+        }
+    }
+
+    private fun initNavigationRail() {
+        binding.navMain?.setOnItemSelectedListener {
             viewModel.setMenuSelect(it.itemId)
             true
         }
@@ -92,16 +106,16 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         }
     }
 
-    override fun onBackPressed() {
-        with(binding) {
-            if (bnvMain.menu.findItem(R.id.menu_setting).isChecked)
+    private fun initBackPressedLogic(menu: Menu?) {
+        menu?.let {
+            if (it.findItem(R.id.menu_setting).isChecked)
                 viewModel.setMenuSelect(R.id.menu_mail)
             else {
-                with(dlMail) {
+                with(binding.dlMail) {
                     if (isOpen)
                         close()
                     else {
-                        if (nvMail.menu.findItem(R.id.item_primary).isChecked)
+                        if (binding.nvMail.menu.findItem(R.id.item_primary).isChecked)
                             super.onBackPressed()
                         else
                             viewModel.setCategorySelect(PRIMARY)
@@ -109,5 +123,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
                 }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        initBackPressedLogic(binding.bnvMain?.menu)
+        initBackPressedLogic(binding.navMain?.menu)
     }
 }
