@@ -8,9 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red_200">#FF5050</color>
-    <color name="red_100">#FFEAEA</color>
+    <color name="red_100">#F5A3A3</color>
     <color name="green_200">#A7D000</color>
     <color name="orange_200">#FF8540</color>
     <color name="grey_300">#CBCBCC</color>
     <color name="grey_500">#8F8F8F</color>
+
+    <color name="profile_bg">#A7D000</color>
+    <color name="nickname_color">#FF000000</color>
 </resources>
