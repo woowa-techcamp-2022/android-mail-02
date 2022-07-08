@@ -24,7 +24,7 @@
             android:layout_width="@dimen/size_profile_100"
             android:layout_height="0dp"
             android:layout_marginTop="32dp"
-            android:background="@color/grey_500"
+            android:background="@color/profile_bg"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
